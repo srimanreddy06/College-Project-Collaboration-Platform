@@ -1,0 +1,5 @@
+/* Inheriting many styles from Login.css, specific overrides here if needed */
+/* We can actually just reuse login.css classes mostly, but good to have file for potential specifics */
+@import './Login.css';
+
+/* Any specific register page overrides */

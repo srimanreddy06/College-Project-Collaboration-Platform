@@ -1,0 +1,46 @@
+.create-project-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 700px;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}

@@ -23,12 +23,14 @@ const Navbar = () => {
                         <>
                             <Link to="/dashboard" className="nav-link">Dashboard</Link>
                             <Link to="/projects" className="nav-link">Projects</Link>
+                            <Link to="/leaderboard" className="nav-link">Leaderboard</Link>
                             <Link to="/create-project" className="nav-link">Create Project</Link>
                             <button onClick={handleLogout} className="btn btn-outline btn-sm">Logout</button>
                         </>
                     ) : (
                         <>
                             <Link to="/projects" className="nav-link">Browse Projects</Link>
+                            <Link to="/leaderboard" className="nav-link">Leaderboard</Link>
                             <Link to="/login" className="nav-link">Login</Link>
                             <Link to="/register" className="btn btn-primary btn-sm">Register</Link>
                         </>

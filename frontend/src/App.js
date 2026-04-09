@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Projects from './pages/Projects';
 import CreateProject from './pages/CreateProject';
+import ProjectDetails from './pages/ProjectDetails';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/create-project" element={<CreateProject />} />
+                        <Route path="/projects/:id" element={<ProjectDetails />} />
                         {/* Fallback route */}
                         <Route path="*" element={<Navigate to="/projects" replace />} />
                     </Routes>

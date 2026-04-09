@@ -1,25 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap');
+
 :root {
-  --primary-color: #2563EB; /* Blue accent */
-  --primary-hover: #1d4ed8;
-  --bg-light: #F3F4F6;
-  --text-dark: #1F2937;
-  --text-muted: #6B7280;
-  --white: #FFFFFF;
-  --border-color: #E5E7EB;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --radius: 8px;
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-dark: #0b0d14;
+  --text-main: #f1f5f9;
+  --text-muted: #64748b;
+  --accent-light: #818cf8;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.07);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --radius: 12px;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+}
+
+h1, h2, h3, h4, .display-font {
+  font-family: 'Syne', sans-serif;
 }
 
 code {
@@ -33,7 +40,12 @@ code {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--accent-light);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #a5b4fc;
 }
 
 button {
@@ -52,35 +64,38 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: var(--radius);
-  font-weight: 500;
+  font-weight: 600;
   border: none;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-primary {
   background-color: var(--primary-color);
-  color: var(--white);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 .btn-outline {
-  background-color: transparent;
+  background-color: rgba(79, 70, 229, 0.1);
   border: 1px solid var(--primary-color);
-  color: var(--primary-color);
+  color: var(--accent-light);
 }
 
 .btn-outline:hover {
-  background-color: #EFF6FF;
+  background-color: rgba(79, 70, 229, 0.2);
+  transform: translateY(-1px);
 }
 
 .card {
-  background-color: var(--white);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   padding: 1.5rem;
 }

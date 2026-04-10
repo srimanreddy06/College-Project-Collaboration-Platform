@@ -18,17 +18,16 @@ const ProjectDetails = () => {
     useEffect(() => {
         const savedProjects = JSON.parse(localStorage.getItem('collegeCollabProjects')) || [];
         const fullLibrary = [...savedProjects, ...mockProjectsList];
-        
+
         const foundProject = fullLibrary.find(p => p.id === parseInt(id));
-        
-        // Add fake default arrays if they are missing from Create form outputs 
+
         if (foundProject && !foundProject.features) foundProject.features = ['Core Development in Progress'];
         if (foundProject && !foundProject.teamMembers) foundProject.teamMembers = [foundProject.author];
         if (foundProject && !foundProject.githubUrl) foundProject.githubUrl = 'https://github.com/project';
         if (foundProject && !foundProject.status) foundProject.status = 'Planning';
-        
+
         setProject(foundProject);
-    }, [id, mockProjectsList]);
+    }, [id]);
 
     if (!project) {
         return (
@@ -49,7 +48,7 @@ const ProjectDetails = () => {
             <div className="details-header">
                 <div className="header-breadcrumbs">
                     <Link to="/projects" className="back-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px'}}><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                         Back to Explore
                     </Link>
                     <span className="category-badge">{project.category}</span>
@@ -62,7 +61,7 @@ const ProjectDetails = () => {
                     </span>
                     <div className="meta-author">
                         <div className="author-avatar">{initials}</div>
-                        <span>Created by <strong style={{color: 'var(--text-main)', fontWeight: 600}}>{project.author}</strong></span>
+                        <span>Created by <strong style={{ color: 'var(--text-main)', fontWeight: 600 }}>{project.author}</strong></span>
                     </div>
                 </div>
             </div>
@@ -71,7 +70,7 @@ const ProjectDetails = () => {
                 <div className="main-info card">
                     <h2 className="section-title">About the Project</h2>
                     <p className="description-text">{project.description}</p>
-                    
+
                     <h3 className="subsection-title">Key Features</h3>
                     <ul className="features-list">
                         {project.features.map((feature, index) => (
@@ -91,7 +90,7 @@ const ProjectDetails = () => {
                         <div className="team-list">
                             {project.teamMembers.map((member, index) => (
                                 <div key={index} className="team-member">
-                                    <div className="member-avatar">{member.substring(0,2).toUpperCase()}</div>
+                                    <div className="member-avatar">{member.substring(0, 2).toUpperCase()}</div>
                                     <span>{member}</span>
                                 </div>
                             ))}
@@ -100,8 +99,8 @@ const ProjectDetails = () => {
 
                     <div className="card links-card">
                         <h3 className="sidebar-title">Resources</h3>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline full-width" style={{marginBottom: '1rem'}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '8px'}}>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline full-width" style={{ marginBottom: '1rem' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}>
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                             </svg>
                             View Repository

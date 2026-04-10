@@ -1,64 +1,34 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { mockProjectsList } from '../utils/mockData';
 import './ProjectDetails.css';
 
 const ProjectDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [project, setProject] = useState(null);
 
-    // Mock Database
-    const mockProjects = useMemo(() => [
-        {
-            id: 1,
-            title: 'AI Study Assistant',
-            description: 'A React and Python based web app that helps students organize study schedules using AI. It predicts the best study times and optimizes learning material based on user retention over time. It utilizes machine learning models to identify knowledge gaps.',
-            author: 'Sarah Chen',
-            category: 'AI / ML',
-            teamMembers: ['Sarah Chen', 'Alex Rivera', 'John Doe'],
-            features: ['Smart Scheduling Algorithm', 'Flashcard Generation', 'Performance Analytics Dashboard'],
-            githubUrl: 'https://github.com',
-            status: 'Active'
-        },
-        {
-            id: 2,
-            title: 'Campus Marketplace',
-            description: 'Mobile-first platform for students to buy and sell textbooks and furniture safely. The application provides an integrated payment gateway, university email verification, and safe exchange drop-off zones on campus.',
-            author: 'Mike Ross',
-            category: 'Mobile',
-            teamMembers: ['Mike Ross', 'Rachel Zane'],
-            features: ['Secure Messaging', 'University Email Verification', 'Item Categorization and Search'],
-            githubUrl: 'https://github.com',
-            status: 'Completed'
-        },
-        {
-            id: 3,
-            title: 'EcoTrack IoT',
-            description: 'IoT project using Arduino to monitor classroom energy usage and optimize lighting. The system integrates multiple sensors to collect data and a web application dashboard to monitor real-time consumption levels.',
-            author: 'David Kim',
-            category: 'Hardware',
-            teamMembers: ['David Kim', 'Emma Watson'],
-            features: ['Real-time Sensor Data Pipeline', 'Energy Saving Suggestions AI', 'Supervisor Dashboard Analytics'],
-            githubUrl: 'https://github.com',
-            status: 'Active'
-        },
-        {
-            id: 4,
-            title: 'Event Management System',
-            description: 'Centralized portal for all college clubs to host events and track registrations. It acts as the backbone for extracurricular affairs, letting users subscribe to clubs, RSVP to events, and auto-sync to their calendars.',
-            author: 'Emily White',
-            category: 'Web App',
-            teamMembers: ['Emily White'],
-            features: ['Role-based Club Access', 'RSVP Tracking & QR Generation', 'Google/Apple Calendar Integration'],
-            githubUrl: 'https://github.com',
-            status: 'Planning'
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        if (isLoggedIn !== "true") {
+            navigate('/login');
         }
-    ], []);
+    }, [navigate]);
 
     useEffect(() => {
-        // Fetch project from mock data
-        const foundProject = mockProjects.find(p => p.id === parseInt(id));
+        const savedProjects = JSON.parse(localStorage.getItem('collegeCollabProjects')) || [];
+        const fullLibrary = [...savedProjects, ...mockProjectsList];
+        
+        const foundProject = fullLibrary.find(p => p.id === parseInt(id));
+        
+        // Add fake default arrays if they are missing from Create form outputs 
+        if (foundProject && !foundProject.features) foundProject.features = ['Core Development in Progress'];
+        if (foundProject && !foundProject.teamMembers) foundProject.teamMembers = [foundProject.author];
+        if (foundProject && !foundProject.githubUrl) foundProject.githubUrl = 'https://github.com/project';
+        if (foundProject && !foundProject.status) foundProject.status = 'Planning';
+        
         setProject(foundProject);
-    }, [id, mockProjects]);
+    }, [id]);
 
     if (!project) {
         return (

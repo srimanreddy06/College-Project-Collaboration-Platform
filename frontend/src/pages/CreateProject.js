@@ -17,10 +17,24 @@ const CreateProject = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Simulate API call
-        console.log('Project Created:', formData);
+        
+        const newProject = {
+            id: Date.now(),
+            title: formData.title,
+            category: formData.category,
+            description: formData.description,
+            skills: formData.requirements ? formData.requirements.split(',').map(s => s.trim()).filter(Boolean) : ['None'],
+            progress: 0,
+            date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+            author: JSON.parse(localStorage.getItem('user'))?.name || 'Sarah Chen'
+        };
+
+        const existingProjects = JSON.parse(localStorage.getItem('collegeCollabProjects')) || [];
+
+        localStorage.setItem('collegeCollabProjects', JSON.stringify([newProject, ...existingProjects]));
+
         alert('Project Created Successfully!');
-        navigate('/projects');
+        navigate('/dashboard');
     };
 
     return (

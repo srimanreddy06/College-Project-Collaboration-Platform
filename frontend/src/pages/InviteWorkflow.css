@@ -1,0 +1,446 @@
+.invite-container {
+    padding: 3rem 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #f8fafc;
+    min-height: 80vh;
+}
+
+/* Step Indicator */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.step-line-bg {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    right: 2rem;
+    height: 2px;
+    background: #2d2b55;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.step-line-fill {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    height: 2px;
+    background: #6d28d9;
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: width 0.4s ease;
+}
+
+.step-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #2d2b55;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #94a3b8;
+    font-weight: 600;
+    font-size: 0.8rem;
+    z-index: 3;
+    transition: all 0.3s ease;
+    border: 2px solid #0a0a12;
+}
+
+.step-dot.active {
+    background: #6d28d9;
+    color: white;
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(109, 40, 217, 0.4);
+}
+
+.step-dot.done {
+    background: #a78bfa;
+    color: white;
+}
+
+/* Base Card */
+.workflow-card {
+    background: #13131f;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    animation: fadeIn 0.4s ease forwards;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Step 1: Form */
+.invite-form .form-label {
+    display: block;
+    color: #a1a1aa;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.invite-form .form-control {
+    width: 100%;
+    background: #1c1a24;
+    border: 1px solid #2a2838;
+    color: #f8fafc;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.invite-form .form-control:focus {
+    outline: none;
+    border-color: #6d28d9;
+}
+
+.btn-gmail {
+    background: linear-gradient(135deg, #ea4335, #c5221f);
+    color: white;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-gmail:hover {
+    box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Step 2: Gmail Mockup */
+.gmail-mockup {
+    background: #18191a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #3a3b3c;
+    font-family: Arial, sans-serif;
+}
+
+.gmail-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #3a3b3c;
+    gap: 1rem;
+}
+
+.gmail-logo {
+    color: #ea4335;
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+}
+
+.gmail-search {
+    flex: 1;
+    background: #242526;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    color: #b0b3b8;
+    font-size: 0.95rem;
+}
+
+.gmail-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.gmail-row {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #242526;
+    border-bottom: 1px solid #3a3b3c;
+    cursor: pointer;
+    gap: 1rem;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.gmail-row:hover {
+    background: #303031;
+}
+
+.gmail-dot {
+    width: 10px;
+    height: 10px;
+    background: #a78bfa;
+    border-radius: 50%;
+}
+
+.gmail-sender {
+    width: 160px;
+    color: #e4e6eb;
+    font-size: 0.95rem;
+}
+
+.gmail-subject {
+    flex: 1;
+    color: #e4e6eb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.95rem;
+}
+
+.gmail-time {
+    color: #b0b3b8;
+    font-size: 0.85rem;
+}
+
+/* Email Open View */
+.email-view {
+    padding: 2rem;
+    background: #242526;
+}
+
+.email-subject {
+    font-size: 1.5rem;
+    color: #e4e6eb;
+    margin-bottom: 1.5rem;
+}
+
+.email-sender-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.email-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #6d28d9;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.email-details span {
+    display: block;
+}
+
+.email-name {
+    color: #e4e6eb;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.email-address {
+    color: #b0b3b8;
+    font-size: 0.85rem;
+}
+
+.email-body {
+    background: #18191a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #3a3b3c;
+    color: #e4e6eb;
+    line-height: 1.6;
+}
+
+.email-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-accept {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-accept:hover {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-decline {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    padding: 0.7rem 1.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-decline:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Step 3: Dashboard Banner */
+.mock-dashboard {
+    background: #0a0a12;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mock-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    background: rgba(19,19,31,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+}
+
+.bell-icon {
+    position: relative;
+    font-size: 1.4rem;
+    color: #a1a1aa;
+    cursor: pointer;
+}
+
+.bell-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mock-content {
+    padding: 2rem;
+}
+
+.stats-row-mock {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card-mock {
+    background: #1c1a24;
+    flex: 1;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.stat-card-mock.pending {
+    border-color: rgba(239, 68, 68, 0.5);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.stat-val {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+.stat-card-mock.pending .stat-val {
+    color: #ef4444;
+}
+
+.notification-banner {
+    background: #1c1a24;
+    border-left: 4px solid #a78bfa;
+    padding: 1.5rem;
+    border-radius: 4px 12px 12px 4px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.banner-text {
+    flex: 1;
+}
+
+.banner-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #f8fafc;
+    margin-bottom: 0.4rem;
+}
+
+.banner-desc {
+    color: #a1a1aa;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Step 4: Result */
+.result-card {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.result-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    margin: 0 auto 1.5rem;
+}
+
+.result-icon.accepted {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+}
+
+.result-icon.declined {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+}
+
+.result-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+}
+
+.result-desc {
+    color: #a1a1aa;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}

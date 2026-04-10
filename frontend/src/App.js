@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard';
 import Projects from './pages/Projects';
 import CreateProject from './pages/CreateProject';
 import ProjectDetails from './pages/ProjectDetails';
+import Leaderboard from './pages/Leaderboard';
+import InviteWorkflow from './pages/InviteWorkflow';
 import './App.css';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/create-project" element={<CreateProject />} />
                         <Route path="/projects/:id" element={<ProjectDetails />} />
+                        <Route path="/leaderboard" element={<Leaderboard />} />
+                        <Route path="/invite" element={<InviteWorkflow />} />
                         {/* Fallback route */}
                         <Route path="*" element={<Navigate to="/projects" replace />} />
                     </Routes>

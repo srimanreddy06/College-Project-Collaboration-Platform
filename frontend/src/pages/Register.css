@@ -1,5 +1,311 @@
-/* Inheriting many styles from Login.css, specific overrides here if needed */
-/* We can actually just reuse login.css classes mostly, but good to have file for potential specifics */
-@import './Login.css';
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
 
-/* Any specific register page overrides */
+.auth-card {
+    background: #100f14;
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 1px solid #1f1d28;
+    min-height: 500px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #e2e8f0;
+}
+
+.auth-brand {
+    text-align: center;
+    color: #a855f7;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2a2838;
+    transition: background 0.3s ease;
+}
+
+.step-dot.active {
+    background: #a855f7;
+}
+
+.step-line {
+    height: 2px;
+    width: 35px;
+    background: #2a2838;
+}
+
+.step-line.active {
+    background: #a855f7;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.auth-subtitle {
+    color: #71717a;
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #d4d4d8;
+    margin-bottom: 0.5rem;
+}
+
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #71717a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.form-control {
+    width: 100%;
+    background: #2b2a2e; 
+    border: 1px solid #3b3a40;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: #f8fafc;
+    outline: none;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.form-control:focus {
+    border-color: #a855f7;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23f8fafc%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+
+select.form-control option {
+    background-color: #100f14;
+    color: #f8fafc;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+    display: block;
+}
+
+/* Buttons */
+.btn-group {
+    margin-top: 2rem;
+}
+
+.btn-dark {
+    background: #1c1a24;
+    color: #ffffff;
+    border: 1px solid #302d3d;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.btn-dark:hover {
+    background: #232030;
+}
+
+.btn-split {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-back {
+    background: #1c1a24;
+    color: #ffffff;
+    border: 1px solid #302d3d;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.btn-back span:first-child {
+    font-size: 1rem;
+}
+
+.btn-back span:last-child {
+    font-size: 0.75rem;
+}
+
+.btn-purple {
+    background: #6366f1; 
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-purple:hover {
+    background: #4f46e5;
+}
+
+/* Skills specific */
+.quick-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.quick-skill-btn {
+    background: transparent;
+    border: 1px solid #3b3a40;
+    color: #a1a1aa;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.quick-skill-btn:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: white;
+}
+
+.quick-skill-btn.selected {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
+    color: #c4b5fd;
+}
+
+.custom-skill-wrap {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dashed-box {
+    border: 1px dashed #3b3a40;
+    border-radius: 6px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: #52525b;
+    font-size: 0.9rem;
+    background: #131116;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border: 1px dashed #3f3d46;
+    border-radius: 6px;
+    padding: 0.75rem;
+    background: #131116;
+    min-height: 70px;
+}
+
+.skill-pill {
+    background: #6366f1;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.skill-pill button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    font-size: 1.1rem;
+}
+
+.skill-pill button:hover {
+    opacity: 1;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #71717a;
+}
+
+.auth-footer a {
+    color: #a855f7;
+    text-decoration: none;
+    font-weight: 600;
+}

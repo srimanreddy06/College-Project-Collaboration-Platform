@@ -1,139 +1,186 @@
-/* Replace the entire file with this updated styling */
-.project-card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
+/* ProjectCard.css - Exact Detail View Match */
+
+.project-card-detail {
+    background-color: #12101a;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 16px;
     padding: 1.5rem;
-    border: 1px solid var(--card-border);
-    transition: transform 0.2s, box-shadow 0.2s, border-top-color 0.2s;
     display: flex;
     flex-direction: column;
     height: 100%;
-    position: relative;
-    border-top: 3px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
 }
 
-.project-card:hover {
+.project-card-detail:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(139, 92, 246, 0.5);
 }
 
-/* Category Hover Borders */
-.cat-webapp:hover { border-top-color: #a855f7; }
-.cat-mobile:hover { border-top-color: #22c55e; }
-.cat-hardware:hover { border-top-color: #f97316; }
-.cat-aiml:hover { border-top-color: #eab308; }
-
-.featured-card {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
-}
-
-.featured-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: linear-gradient(to right, #a855f7, #6366f1);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
-    text-transform: uppercase;
-    z-index: 10;
-}
-
-.project-header {
+.pc-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
-.project-icon-box {
+.pc-icon-box {
     width: 40px;
     height: 40px;
-    border-radius: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    background-color: rgba(255,255,255,0.05);
+    color: #a78bfa;
+    background-color: transparent;
 }
 
-.project-title {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.3rem;
-    color: var(--text-main);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-}
-
-.project-category {
-    padding: 0.25rem 0.6rem;
+.badge-filled {
+    background: #6d28d9;
+    color: #fff;
+    font-size: 0.6rem;
+    padding: 0.25rem 0.7rem;
     border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.badge-webapp { background-color: rgba(168, 85, 247, 0.15); color: #c084fc; }
-.badge-mobile { background-color: rgba(34, 197, 94, 0.15); color: #4ade80; }
-.badge-hardware { background-color: rgba(249, 115, 22, 0.15); color: #fb923c; }
-.badge-aiml { background-color: rgba(234, 179, 8, 0.15); color: #facc15; }
-.badge-general { background-color: rgba(99, 102, 241, 0.15); color: #818cf8; }
+.pc-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: #ffffff;
+}
 
-.project-description {
-    color: var(--text-muted);
-    font-size: 0.95rem;
+.pc-desc {
+    color: #4b5563;
+    font-size: 0.85rem;
     line-height: 1.5;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+    flex-grow: 1; /* Pushes everything below to bottom if text is short */
 }
 
-.project-footer {
+.pc-progress-area {
+    margin-bottom: 1.25rem;
+}
+
+.prog-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.prog-value {
+    color: #d8b4fe;
+}
+
+.prog-bar-bg {
+    background: rgba(255,255,255,0.05);
+    height: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.prog-bar-fill {
+    height: 100%;
+    background: #a855f7;
+    border-radius: 2px;
+    transition: width 1s ease-in-out;
+}
+
+.pc-date-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid var(--card-border);
-    padding-top: 1rem;
+    background-color: #0b0a10;
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    font-size: 0.75rem;
 }
 
-.project-author {
+.date-label {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-}
-
-.author-avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 700;
-}
-
-.author-name {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    color: #4b5563;
+    gap: 0.5rem;
     font-weight: 500;
 }
 
-.btn-pill {
+.date-val {
+    color: #ffcba4;
+    font-weight: 700;
+}
+
+.pc-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pill-outline {
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #d8b4fe;
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 20px;
+    font-weight: 600;
 }
 
-.btn-indigo {
-    background-color: rgba(79, 70, 229, 0.15);
-    color: #818cf8;
-    border: none;
+.pc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.btn-indigo:hover {
-    background-color: rgba(79, 70, 229, 0.25);
-    color: #a5b4fc;
+.pc-author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pc-author-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #6d28d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.pc-author-name {
+    color: #4b5563;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.btn-details {
+    background: transparent;
+    border: 1px solid #4b5563;
+    color: #f8fafc;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-details:hover {
+    background: rgba(255,255,255,0.05);
 }

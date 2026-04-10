@@ -2,40 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import './Projects.css';
+import { mockProjectsList } from '../utils/mockData';
 
 const Projects = () => {
-    // Mock data with "featured" property and "category" standardization
-    const [projects] = useState([
-        {
-            id: 1,
-            title: 'AI Study Assistant',
-            description: 'A React and Python based web app that helps students organize study schedules using AI.',
-            author: 'Sarah Chen',
-            category: 'AI / ML',
-            featured: true
-        },
-        {
-            id: 2,
-            title: 'Campus Marketplace',
-            description: 'Mobile-first platform for students to buy and sell textbooks and furniture safely.',
-            author: 'Mike Ross',
-            category: 'Mobile'
-        },
-        {
-            id: 3,
-            title: 'EcoTrack IoT',
-            description: 'IoT project using Arduino to monitor classroom energy usage and optimize lighting.',
-            author: 'David Kim',
-            category: 'Hardware'
-        },
-        {
-            id: 4,
-            title: 'Event Management System',
-            description: 'Centralized portal for all college clubs to host events and track registrations.',
-            author: 'Emily White',
-            category: 'Web App'
-        }
-    ]);
+    const [projects] = useState(() => {
+        const userSaved = JSON.parse(localStorage.getItem('collegeCollabProjects')) || [];
+        // Combine user projects and mock gallery for a robust Explore list
+        return [...userSaved, ...mockProjectsList];
+    });
 
     const [searchTerm, setSearchTerm] = useState('');
     const [activeFilter, setActiveFilter] = useState('All');

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProjectDetails.css';
 
@@ -7,7 +7,7 @@ const ProjectDetails = () => {
     const [project, setProject] = useState(null);
 
     // Mock Database
-    const mockProjects = [
+    const mockProjects = useMemo(() => [
         {
             id: 1,
             title: 'AI Study Assistant',
@@ -52,13 +52,13 @@ const ProjectDetails = () => {
             githubUrl: 'https://github.com',
             status: 'Planning'
         }
-    ];
+    ], []);
 
     useEffect(() => {
         // Fetch project from mock data
         const foundProject = mockProjects.find(p => p.id === parseInt(id));
         setProject(foundProject);
-    }, [id]);
+    }, [id, mockProjects]);
 
     if (!project) {
         return (

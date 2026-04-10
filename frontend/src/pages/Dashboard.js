@@ -9,6 +9,7 @@ const Dashboard = () => {
     const [user, setUser] = useState(null);
     const [projects, setProjects] = useState([]);
 
+    // eslint-disable-next-line
     useEffect(() => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (isLoggedIn !== 'true') {

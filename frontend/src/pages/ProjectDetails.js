@@ -28,7 +28,7 @@ const ProjectDetails = () => {
         if (foundProject && !foundProject.status) foundProject.status = 'Planning';
         
         setProject(foundProject);
-    }, [id]);
+    }, [id, mockProjectsList]);
 
     if (!project) {
         return (

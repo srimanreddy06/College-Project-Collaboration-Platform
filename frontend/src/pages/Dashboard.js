@@ -39,7 +39,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container">
             <div className="dashboard-content">
-                
+
                 {/* Hero Section */}
                 <div className="hero-section">
                     <h1 className="hero-title">

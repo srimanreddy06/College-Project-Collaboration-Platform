@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Leaderboard.css';
 
 const DEFAULT_USERS = [
@@ -16,8 +17,16 @@ const getInitials = (name) => {
 };
 
 const Leaderboard = () => {
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('points');
     const [timeframe, setTimeframe] = useState('all-time');
+
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn !== 'true') {
+            navigate('/login');
+        }
+    }, [navigate]);
 
     // Retrieve local user
     const localUserStr = localStorage.getItem('user');

@@ -30,7 +30,7 @@ const Navbar = () => {
                     ) : (
                         <>
                             <Link to="/projects" className="nav-link">Browse Projects</Link>
-                            <Link to="/leaderboard" className="nav-link">Leaderboard</Link>
+                            <Link to="/login" className="nav-link">Leaderboard</Link>
                             <Link to="/login" className="nav-link">Login</Link>
                             <Link to="/register" className="btn btn-primary btn-sm">Register</Link>
                         </>
